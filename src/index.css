@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@theme {
+  --color-blush-pink: #F8DCE8;
+  --color-blush-soft: #FDF2F7;
+  --color-rose-pink: #E8A0B5;
+  --color-rose-deep: #D17792;
+  --color-soft-gold: #D4AF65;
+  --color-gold-light: #F4E3B8;
+  --color-gold-dark: #B88F3B;
+  --color-ivory-white: #FFF9F5;
+  --color-heart-red: #D93652;
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-script: "Great Vibes", cursive;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+
+  --shadow-gold-soft: 0 4px 20px -2px rgba(212, 175, 101, 0.2);
+  --shadow-rose-soft: 0 4px 20px -2px rgba(232, 160, 181, 0.25);
+  --shadow-card-elevated: 0 10px 25px -5px rgba(212, 175, 101, 0.15), 0 8px 10px -6px rgba(232, 160, 181, 0.1);
+  --shadow-gift: 0 16px 36px -8px rgba(232, 160, 181, 0.35), 0 6px 16px -4px rgba(212, 175, 101, 0.15);
+}
+
+:root {
+  --color-blush-pink: #F8DCE8;
+  --color-rose-pink: #E8A0B5;
+  --color-soft-gold: #D4AF65;
+  --color-ivory-white: #FFF9F5;
+  --color-heart-red: #D93652;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFF9F5;
+  color: #2D2526;
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom reusable design system utility classes */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #B88F3B 0%, #D4AF65 50%, #F4E3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rose-gold-gradient {
+  background: linear-gradient(135deg, #FFF9F5 0%, #FDF2F7 50%, #F8DCE8 100%);
+}
+
+.gold-border {
+  border: 1px solid rgba(212, 175, 101, 0.35);
+}
+
+.gold-glow {
+  box-shadow: 0 0 20px rgba(212, 175, 101, 0.2);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 101, 0.25);
+}
+
+/* Keyframe animations for gentle floating hearts and sparkles */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(4deg);
+  }
+}
+
+@keyframes floatSway {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-11px) translateX(3px) rotate(-5deg);
+  }
+}
+
+@keyframes floatBob {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-3deg);
+  }
+}
+
+@keyframes twinkleGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+.animate-float-sway {
+  animation: floatSway 5s ease-in-out infinite;
+}
+
+.animate-float-bob {
+  animation: floatBob 3.5s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkleGlow 2.5s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 3s ease-in-out infinite;
+}
+
+/* Accessibility: disable or calm down animations for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-gentle,
+  .animate-float-sway,
+  .animate-float-bob,
+  .animate-twinkle,
+  .animate-pulse-soft {
+    animation: none !important;
+  }
+}
